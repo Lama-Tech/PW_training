@@ -1,1 +1,1 @@
-# PW_training
+# workshops
