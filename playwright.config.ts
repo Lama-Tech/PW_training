@@ -48,6 +48,13 @@ export default defineConfig({
       name: 'prod',
       use: { baseURL:"https://google.com",...devices['Desktop Chrome'] },
     },
+    {
+      name: 'no.browser'
+    },
+    {
+      name: 'playwright',
+      
+    }
     
     
 
