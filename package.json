@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx playwright test --project=dev",
-    "prod": "npx playwright test --project=prod"
+    "prod": "npx playwright test --project=prod",
+    "dates": "npx playwright test tests/dates.spec.ts --project=no.browser",
+    "faker": "npx playwright test tests/faker.spec.ts --project=no.browser",
+    "playwright": "npx playwright test tests/pw.spec.ts --project=playwright"
   },
   "repository": {
     "type": "git",
@@ -19,10 +22,12 @@
   },
   "homepage": "https://github.com/Lama-Tech/PW_training#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.11"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7"
   }
 }
