@@ -17,8 +17,8 @@ export class MainPage {
     this.register = this.page.getByText("Login or register");
     this.continueButton = this.page.getByText("Continue");
   }
-async openMainPage(): Promise<void> {
-    await this.page.goto("https://automationteststore.com")
+async openMainPage(url:string): Promise<void> {
+    await this.page.goto(url)
     
     //await expect(this.page.title()).resolves.toEqual(this.titlePage);
     

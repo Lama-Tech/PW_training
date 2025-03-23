@@ -1,4 +1,5 @@
 import { Page, expect, Locator } from "@playwright/test";
+import { executionAsyncId } from "async_hooks";
 
 export class RegisterPage {
   loginInput: Locator;
@@ -6,14 +7,18 @@ export class RegisterPage {
   titlePage: String;
   register: Locator;
   continueButton: Locator;
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  Telephone: string;
-  Fax: string;
+  firstNameInput: Locator;
+  lastName: Locator;
+  email: Locator;
+  telephone: Locator;
+  Fax: Locator;
 
   constructor(protected page: Page) {
     this.loginInput = this.page.locator("#loginFrm_loginname");
+    this.firstNameInput = this.page.locator("#AccountFrm_firstname");
+    this.lastName = this.page.locator("#AccountFrm_lastname");
+    this.email = this.page.locator("#AccountFrm_email");
+    this.telephone = this.page.locator("#AccountFrm_telephone");
   }
   async openMainPage(): Promise<void> {
     await this.page.goto("https://automationteststore.com");
@@ -24,6 +29,19 @@ export class RegisterPage {
     await this.register.click();
   }
   async firstNameField(): Promise<void> {
-    await this.page.locator("#AccountFrm_firstname").fill("Janusz");
+    await this.firstNameInput.fill("Janusz");
+    await expect(this.firstNameInput).toHaveValue("Janusz");
+  }
+  async lastNameField(): Promise<void> {
+    await this.lastName.fill("Kowalski");
+    await expect(this.lastName).toHaveValue("Kowalski");
+  }
+  async emailField(): Promise<void> {
+    await this.email.fill("b0l3k21@gmail.com");
+    await expect(this.email).toHaveValue("b0l3k21@gmail.com");
+  }
+  async telephoneField(): Promise<void> {
+    await this.telephone.fill("555555555");
+    await expect(this.telephone).toHaveValue("555555555");
   }
 }
