@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx playwright test --project=dev",
+    "dev": "npx playwright test --project=chromium",
+    "api": "npx playwright test tests/api.spec.ts --project=no.browser",
+    "dev_visible": "npx playwright test --project=chromium --headed",
     "prod": "npx playwright test --project=prod",
     "dates": "npx playwright test tests/dates.spec.ts --project=no.browser",
     "faker": "npx playwright test tests/faker.spec.ts --project=no.browser",
